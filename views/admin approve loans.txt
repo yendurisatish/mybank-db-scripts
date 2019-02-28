@@ -1,0 +1,22 @@
+USE [MyBank]
+GO
+
+/****** Object:  View [dbo].[admin_approve_loans]    Script Date: 2/28/2019 1:17:13 PM ******/
+DROP VIEW [dbo].[admin_approve_loans]
+GO
+
+/****** Object:  View [dbo].[admin_approve_loans]    Script Date: 2/28/2019 1:17:13 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+/****** Script for SelectTopNRows command from SSMS  ******/
+CREATE VIEW [dbo].[admin_approve_loans] AS
+SELECT Id,dbo.fn_get_username(account_no) as username,LoanType,Income,Emp_Type,account_no,city,loan_amount,approved FROM LOAN where approved='no'
+
+GO
+
+

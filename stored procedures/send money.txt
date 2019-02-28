@@ -1,0 +1,41 @@
+USE [MyBank]
+GO
+
+/****** Object:  StoredProcedure [dbo].[sendmoney]    Script Date: 2/28/2019 3:13:50 PM ******/
+DROP PROCEDURE [dbo].[sendmoney]
+GO
+
+/****** Object:  StoredProcedure [dbo].[sendmoney]    Script Date: 2/28/2019 3:13:50 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[sendmoney](
+@targetaccount bigint,
+@senderaccount bigint,
+@bal float,
+@user nchar(10) output
+) 
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+update Customer set balance=balance-@bal  where accountno=@senderaccount;
+update Customer set balance=balance+@bal where accountno=@targetaccount;
+insert into [dbo].[Transaction](trans_account,amount,oth_account,time) values(@senderaccount,@bal,@targetaccount,GETDATE());
+select @user=username from Customer where accountno=@targetaccount
+
+END
+
+GO
+
+

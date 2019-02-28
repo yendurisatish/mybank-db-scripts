@@ -1,0 +1,63 @@
+USE [MyBank]
+GO
+
+/****** Object:  StoredProcedure [dbo].[applyLoan]    Script Date: 2/28/2019 3:12:21 PM ******/
+DROP PROCEDURE [dbo].[applyLoan]
+GO
+
+/****** Object:  StoredProcedure [dbo].[applyLoan]    Script Date: 2/28/2019 3:12:21 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE [dbo].[applyLoan] (
+@accountNumber bigint,
+@loanType nvarchar(50),
+@income bigint,
+
+@loanAmount float,
+@empType nvarchar(50),
+@city nvarchar(50)
+)
+	-- Add the parameters for the stored procedure here
+	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	INSERT INTO [dbo].[Loan]
+           ([LoanType]
+           ,[Income]
+          
+           
+           ,[Emp_Type]
+           ,[account_no]
+           ,[loan_amount]
+           
+           ,[approved]
+		   ,[city])
+     VALUES
+           (@loanType
+           ,@income
+           
+           ,@empType
+           ,@accountNumber
+           ,@loanAmount
+          
+           ,'no'
+		   ,@city)
+END
+
+GO
+
+

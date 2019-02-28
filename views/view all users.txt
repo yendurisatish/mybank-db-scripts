@@ -1,0 +1,21 @@
+USE [MyBank]
+GO
+
+/****** Object:  View [dbo].[view all users]    Script Date: 2/28/2019 1:19:32 PM ******/
+DROP VIEW [dbo].[view all users]
+GO
+
+/****** Object:  View [dbo].[view all users]    Script Date: 2/28/2019 1:19:32 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE view [dbo].[view all users] as
+select username,accountno,firstname,lastname,convert(varchar, dob,103) as dob,phoneno,email,aadhar_no,account_type,balance,address from customer
+
+GO
+
+

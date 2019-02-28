@@ -1,0 +1,27 @@
+USE [MyBank]
+GO
+
+/****** Object:  Table [dbo].[Login]    Script Date: 2/28/2019 1:16:04 PM ******/
+DROP TABLE [dbo].[Login]
+GO
+
+/****** Object:  Table [dbo].[Login]    Script Date: 2/28/2019 1:16:04 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Login](
+	[username] [nchar](10) NOT NULL,
+	[password] [nchar](10) NOT NULL,
+	[admin] [bit] NOT NULL,
+ CONSTRAINT [PK_Login] PRIMARY KEY CLUSTERED 
+(
+	[username] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+

@@ -1,0 +1,41 @@
+USE [MyBank]
+GO
+
+/****** Object:  StoredProcedure [dbo].[spAuthenticateUser]    Script Date: 2/28/2019 3:14:19 PM ******/
+DROP PROCEDURE [dbo].[spAuthenticateUser]
+GO
+
+/****** Object:  StoredProcedure [dbo].[spAuthenticateUser]    Script Date: 2/28/2019 3:14:19 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+Create Procedure [dbo].[spAuthenticateUser]
+@UserName nvarchar(100),
+@Password nvarchar(100)
+as
+Begin
+ Declare @Count int
+ 
+ Select @Count = COUNT(username) from Login
+ where [username] = @UserName and [password] = @Password
+ 
+ if(@Count = 1)
+ Begin
+  Select 1 as ReturnCode
+ End
+ Else
+ Begin
+  Select -1 as ReturnCode
+ End
+End 
+GO
+
+

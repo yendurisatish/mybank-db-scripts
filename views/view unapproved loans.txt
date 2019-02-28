@@ -1,0 +1,23 @@
+USE [MyBank]
+GO
+
+/****** Object:  View [dbo].[view unapproved loans]    Script Date: 2/28/2019 1:22:18 PM ******/
+DROP VIEW [dbo].[view unapproved loans]
+GO
+
+/****** Object:  View [dbo].[view unapproved loans]    Script Date: 2/28/2019 1:22:18 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+CREATE VIEW [dbo].[view unapproved loans] AS
+SELECT Id,dbo.fn_get_username(account_no) as username,LoanType,Income,account_no,loan_amount,Payslip,Photo,Signature,approved FROM Loan where approved='no'
+
+
+GO
+
+

@@ -1,0 +1,36 @@
+USE [MyBank]
+GO
+
+/****** Object:  UserDefinedFunction [dbo].[fn_get_username]    Script Date: 2/28/2019 3:17:57 PM ******/
+DROP FUNCTION [dbo].[fn_get_username]
+GO
+
+/****** Object:  UserDefinedFunction [dbo].[fn_get_username]    Script Date: 2/28/2019 3:17:57 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date, ,>
+-- Description:	<Description, ,>
+-- =============================================
+CREATE FUNCTION [dbo].[fn_get_username] 
+(
+	-- Add the parameters for the function here
+	@accno bigint
+)
+RETURNS nchar(10)
+AS
+BEGIN
+	
+	-- Return the result of the function
+	RETURN (select username from Customer where accountno=@accno)
+
+END
+
+GO
+
+

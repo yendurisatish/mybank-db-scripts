@@ -1,0 +1,36 @@
+USE [MyBank]
+GO
+
+/****** Object:  Table [dbo].[Loan]    Script Date: 2/28/2019 1:15:18 PM ******/
+DROP TABLE [dbo].[Loan]
+GO
+
+/****** Object:  Table [dbo].[Loan]    Script Date: 2/28/2019 1:15:18 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Loan](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[LoanType] [nvarchar](50) NOT NULL,
+	[Income] [bigint] NOT NULL,
+	[Payslip] [nvarchar](50) NULL,
+	[Photo] [nvarchar](50) NULL,
+	[Signature] [nvarchar](50) NULL,
+	[Emp_Type] [nvarchar](50) NOT NULL,
+	[account_no] [bigint] NOT NULL,
+	[loan_amount] [float] NOT NULL,
+	[approved_time] [datetime] NULL,
+	[approved] [nchar](10) NULL,
+	[city] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Loan] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+

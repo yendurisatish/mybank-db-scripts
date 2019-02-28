@@ -1,0 +1,30 @@
+USE [MyBank]
+GO
+
+/****** Object:  Trigger [tr_for_register_loginTable]    Script Date: 2/28/2019 3:19:09 PM ******/
+DROP TRIGGER [dbo].[tr_for_register_loginTable]
+GO
+
+/****** Object:  Trigger [dbo].[tr_for_register_loginTable]    Script Date: 2/28/2019 3:19:09 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE trigger [dbo].[tr_for_register_loginTable]
+on [dbo].[Customer]
+after insert
+as
+begin
+declare @user nchar(10)
+declare @password nchar(10)
+declare @Isadmin bit
+select @user=username,@password=password,@Isadmin=admin from INSERTED
+
+
+ insert into Login(username,password,admin) values(@user,@password,@Isadmin)
+ end
+GO
+
+

@@ -1,0 +1,40 @@
+USE [MyBank]
+GO
+
+ALTER TABLE [dbo].[deposits] DROP CONSTRAINT [FK_deposits_Customer]
+GO
+
+/****** Object:  Table [dbo].[deposits]    Script Date: 2/28/2019 1:14:31 PM ******/
+DROP TABLE [dbo].[deposits]
+GO
+
+/****** Object:  Table [dbo].[deposits]    Script Date: 2/28/2019 1:14:31 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[deposits](
+	[deposit_id] [int] IDENTITY(1,1) NOT NULL,
+	[accountno] [bigint] NOT NULL,
+	[deposit_amount] [float] NOT NULL,
+	[duration] [int] NOT NULL,
+	[approved_time] [datetime] NULL,
+	[approved] [nchar](10) NOT NULL,
+ CONSTRAINT [PK_deposits] PRIMARY KEY CLUSTERED 
+(
+	[deposit_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[deposits]  WITH CHECK ADD  CONSTRAINT [FK_deposits_Customer] FOREIGN KEY([accountno])
+REFERENCES [dbo].[Customer] ([accountno])
+GO
+
+ALTER TABLE [dbo].[deposits] CHECK CONSTRAINT [FK_deposits_Customer]
+GO
+
+
