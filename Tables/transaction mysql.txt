@@ -1,0 +1,28 @@
+USE `MyBank`;
+ 
+
+/****** Object:  Table [dbo].[Transaction]    Script Date: 2/28/2019 1:16:35 PM ******/
+DROP TABLE Transaction;
+ 
+
+/****** Object:  Table [dbo].[Transaction]    Script Date: 2/28/2019 1:16:35 PM ******/
+/* SET ANSI_NULLS ON */
+ 
+
+/* SET QUOTED_IDENTIFIER ON */
+ 
+
+CREATE TABLE Transaction(
+	`transid` int AUTO_INCREMENT NOT NULL,
+	`trans_account` bigint NOT NULL,
+	`amount` Double NOT NULL,
+	`oth_account` bigint NOT NULL,
+	`time` datetime(3) NOT NULL,
+ CONSTRAINT `PK_Transaction` PRIMARY KEY 
+(
+	`transid` ASC
+) 
+);
+
+
+

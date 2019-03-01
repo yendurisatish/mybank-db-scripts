@@ -1,0 +1,42 @@
+USE `MyBank`;
+ 
+
+/****** Object:  Table [dbo].[Customer]    Script Date: 2/28/2019 1:12:03 PM ******/
+DROP TABLE Customer;
+ 
+
+/****** Object:  Table [dbo].[Customer]    Script Date: 2/28/2019 1:12:03 PM ******/
+/* SET ANSI_NULLS ON */
+ 
+
+/* SET QUOTED_IDENTIFIER ON */
+ 
+
+/* SET ANSI_PADDING ON */
+ 
+
+CREATE TABLE Customer(
+	`username` nchar(10) NOT NULL,
+	`accountno` bigint AUTO_INCREMENT NOT NULL,
+	`firstname` nvarchar(50) NOT NULL,
+	`lastname` nvarchar(50) NOT NULL,
+	`dob` date NOT NULL,
+	`phoneno` nvarchar(50) NOT NULL,
+	`email` nvarchar(50) NOT NULL,
+	`aadhar_no` nvarchar(50) NOT NULL,
+	`account_type` nchar(10) NOT NULL,
+	`balance` Double NOT NULL,
+	`address` varchar(100) NOT NULL,
+	`password` nchar(10) NOT NULL,
+	`admin` Tinyint NOT NULL,
+ CONSTRAINT `PK_Customer` PRIMARY KEY 
+(
+	`accountno` ASC
+) 
+);
+
+
+/* SET ANSI_PADDING OFF */
+ 
+
+

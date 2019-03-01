@@ -1,0 +1,26 @@
+USE `MyBank`;
+ 
+
+/****** Object:  Table [dbo].[Login]    Script Date: 2/28/2019 1:16:04 PM ******/
+DROP TABLE Login;
+ 
+
+/****** Object:  Table [dbo].[Login]    Script Date: 2/28/2019 1:16:04 PM ******/
+/* SET ANSI_NULLS ON */
+ 
+
+/* SET QUOTED_IDENTIFIER ON */
+ 
+
+CREATE TABLE Login(
+	`username` nchar(10) NOT NULL,
+	`password` nchar(10) NOT NULL,
+	`admin` Tinyint NOT NULL,
+ CONSTRAINT `PK_Login` PRIMARY KEY 
+(
+	`username` ASC
+) 
+);
+
+
+

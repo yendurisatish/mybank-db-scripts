@@ -1,0 +1,35 @@
+USE `MyBank`;
+ 
+
+/****** Object:  Table [dbo].[Loan]    Script Date: 2/28/2019 1:15:18 PM ******/
+DROP TABLE Loan;
+ 
+
+/****** Object:  Table [dbo].[Loan]    Script Date: 2/28/2019 1:15:18 PM ******/
+/* SET ANSI_NULLS ON */
+ 
+
+/* SET QUOTED_IDENTIFIER ON */
+ 
+
+CREATE TABLE Loan(
+	`Id` int AUTO_INCREMENT NOT NULL,
+	`LoanType` nvarchar(50) NOT NULL,
+	`Income` bigint NOT NULL,
+	`Payslip` nvarchar(50) NULL,
+	`Photo` nvarchar(50) NULL,
+	`Signature` nvarchar(50) NULL,
+	`Emp_Type` nvarchar(50) NOT NULL,
+	`account_no` bigint NOT NULL,
+	`loan_amount` Double NOT NULL,
+	`approved_time` datetime(3) NULL,
+	`approved` nchar(10) NULL,
+	`city` nvarchar(50) NULL,
+ CONSTRAINT `PK_Loan` PRIMARY KEY 
+(
+	`Id` ASC
+) 
+);
+
+
+
